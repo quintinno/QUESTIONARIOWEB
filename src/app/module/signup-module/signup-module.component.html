@@ -1,0 +1,49 @@
+<div class="bootstrap-wrapper">
+
+    <div class="main-panel">
+        <div class="col-md-12" style="margin-top: 90px;">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Register Now</div>
+                </div>
+
+                <form (ngSubmit)="save()">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <mat-form-field appearance="fill" class="full-width">
+                                        <mat-label>Identificador</mat-label>
+                                        <input matInput name="identificador" [(ngModel)]="usuarioModel.identificador" [ngModelOptions]="{standalone: true}" required placeholder="Your E-mail, Phone Number, Username, Document or Code">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <mat-form-field appearance="fill" class="full-width">
+                                        <mat-label>Password</mat-label>
+                                        <input name="senha" [(ngModel)]="usuarioModel.senha" [ngModelOptions]="{standalone: true}" required type="password" matInput>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <mat-form-field appearance="fill" class="full-width">
+                                        <mat-label>Passsword Again</mat-label>
+                                        <input name="contrasenha" [(ngModel)]="contrasenha" [ngModelOptions]="{standalone: true}" required type="password" matInput>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <button mat-raised-button type="submit" color="primary" class="col-md-12" style="margin-bottom: 20px;">REGISTER</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

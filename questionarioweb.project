@@ -1,0 +1,14 @@
+# Sistema Questionário
+
+    + Comandos
+
+        ng new QUESTIONARIOWEB
+        ng serve --port 8080 --open
+
+        ng generate component component/navbar-component
+
+    + Dependencias
+
+        ng add @angular/material
+        npm install bootstrap-grid-only-css --save
+        npm install --save sweetalert2
