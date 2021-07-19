@@ -15,9 +15,7 @@
                                     <div class="form-group">
                                         <mat-form-field appearance="fill" class="full-width">
                                             <mat-label>Identifier</mat-label>
-                                            <input name="senha" [(ngModel)]="usuarioModel.identificador"
-                                                [ngModelOptions]="{standalone: true}" placeholder="Your Identifier"
-                                                required matInput>
+                                            <input name="username" [(ngModel)]="autenticadorModel.username" [ngModelOptions]="{standalone: true}" placeholder="Your Identifier" required matInput>
                                         </mat-form-field>
                                     </div>
                                 </div>
@@ -25,19 +23,15 @@
                                     <div class="form-group">
                                         <mat-form-field appearance="fill" class="full-width">
                                             <mat-label>Passsword</mat-label>
-                                            <input name="senha" type="password" [(ngModel)]="usuarioModel.senha"
-                                                [ngModelOptions]="{standalone: true}" placeholder="Your Password"
-                                                required matInput>
+                                            <input name="password" type="password" [(ngModel)]="autenticadorModel.password" [ngModelOptions]="{standalone: true}" placeholder="Your Password" required matInput>
                                         </mat-form-field>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="container">
-                            <button mat-raised-button type="submit" color="primary" class="col-md-8"
-                                style="margin-bottom: 20px; margin-right: 10px;">ACCESS</button>
-                            <button mat-raised-button type="submit" color="accent" class="col-md-3"
-                                style="margin-bottom: 20px;">Cancel</button>
+                            <button mat-raised-button type="submit" color="primary" class="col-md-8" style="margin-bottom: 20px; margin-right: 10px;">ACCESS</button>
+                            <button mat-raised-button type="submit" color="accent" class="col-md-3" style="margin-bottom: 20px;">Cancel</button>
                         </div>
                     </form>
                 </mat-card>

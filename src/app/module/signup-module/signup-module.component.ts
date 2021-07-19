@@ -42,11 +42,11 @@ export class SignupModuleComponent implements OnInit {
       this.apresentarAlerta("O campo Usuário é Obrigatório!");
       return false; 
     }
-    if(this.usuarioModel.senha == null || this.usuarioModel.senha == "" || this.usuarioModel.senha == undefined) {
+    if(this.usuarioModel.chave == null || this.usuarioModel.chave == "" || this.usuarioModel.chave == undefined) {
       this.apresentarAlerta("O campo Senha é Obrigatório!");
       return false; 
     }
-    if(this.usuarioModel.senha != this.contrasenha) {
+    if(this.usuarioModel.chave != this.contrasenha) {
       this.apresentarAlerta("As senhas devem ser idênticas!");
       return false; 
     }
@@ -69,7 +69,7 @@ export class SignupModuleComponent implements OnInit {
   private limparCamposFormulario() {
     this.usuarioModel.codigo = null;
     this.usuarioModel.identificador = null;
-    this.usuarioModel.senha = null;
+    this.usuarioModel.chave = null;
     this.contrasenha = null;
     window.location.reload();
   }
