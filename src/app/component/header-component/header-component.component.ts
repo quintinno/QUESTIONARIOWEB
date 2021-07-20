@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AutenticadorService } from 'src/app/service/autenticador.service';
 
 @Component({
   selector: 'app-header-component',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public autenticadorService: AutenticadorService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  public logout() {
+    this.autenticadorService.logout();
+    window.location.reload();
   }
 
 }

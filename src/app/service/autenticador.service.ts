@@ -1,5 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { identifierModuleUrl } from '@angular/compiler';
+import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -14,18 +13,24 @@ export class AutenticadorService {
 
   constructor(
     private httpClient: HttpClient,
-  ) { }
+    private httpBackend: HttpBackend,
+  ) { 
+    this.httpClient = new HttpClient(httpBackend); // Ignora o Interceptor
+  }
 
   public verificarUsuarioAtivo() {
     return this.httpClient.get(`${this.API}/usuario-ativo`);
   }
 
-  public recuperarTokenAutenticador(autenticadorModel: AutenticadorModel) : Observable<AutenticadorModel> {
+  public recuperarUsuarioCorrente() {
+    return this.httpClient.get(`${this.API}/usuario-corrente`);
+  }
+
+  public gerarTokenAutenticador(autenticadorModel: AutenticadorModel) : Observable<AutenticadorModel> {
     return this.httpClient.post<AutenticadorModel>(`${this.API}/autenticador`, autenticadorModel);
   }
 
   public registrarTokenLocalStorage(token : string) : void {
-    console.log(token);
     localStorage.setItem("QUESTIONARIO_TOKEN", token);
   }
 

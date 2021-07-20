@@ -19,4 +19,8 @@ export class UsuarioService {
     return this.httpClient.post<UsuarioModel>(`${this.API}`, usuarioModel);
   }
 
+  public recuperarUsuario(usuarioModel: UsuarioModel) : Observable<UsuarioModel> {
+    return this.httpClient.post<UsuarioModel>(`${this.API}/recuperar-usuario`, usuarioModel);
+  }
+
 }
