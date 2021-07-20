@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { UsuarioModel } from "../../model/usuario-model";
 import { UsuarioService } from "../../service/usuario.service";
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup-module',
@@ -18,6 +19,7 @@ export class SignupModuleComponent implements OnInit {
   constructor(
     private usuarioService: UsuarioService,
     private matSnackBar: MatSnackBar,
+    private router: Router
   ) { }
 
   ngOnInit(): void { }
@@ -27,8 +29,9 @@ export class SignupModuleComponent implements OnInit {
       this.usuarioService.save(this.usuarioModel).subscribe(
         response => {
           this.usuarioModel = response;
-          Swal.fire("Questionário", "Usuário " + this.usuarioModel.identificador + " Cadastrado com Sucesso!", "success");
+          this.apresentarSucesso("Usuário " + this.usuarioModel.identificador + " Cadastrado com Sucesso!");
           this.apresentarAlerta("Usuário Cadastrado com Sucesso!");
+          this.redirecionarPaginaLogin();
           this.limparCamposFormulario();
         }, 
         error => {
@@ -61,6 +64,10 @@ export class SignupModuleComponent implements OnInit {
     });
   }
 
+  private apresentarSucesso(mensagem: string) {
+    Swal.fire("Questionário", mensagem, "success");
+  }
+
   private error(error) {
     this.apresentarAlerta("Não foi possível cadastrar seus dados no momento. Tente novamente mais tarde!");
     return console.error("ERROR: ", JSON.stringify(error));
@@ -71,7 +78,18 @@ export class SignupModuleComponent implements OnInit {
     this.usuarioModel.identificador = null;
     this.usuarioModel.chave = null;
     this.contrasenha = null;
-    window.location.reload();
+  }
+
+  public redirecionarPaginaLogin() {
+    setTimeout(() => {
+      this.router.navigate(["/login"]);
+    }, 5000);
+  }
+
+  private recarregarPagina() {
+    setTimeout(() => {
+      window.location.reload();
+    }, 5000);
   }
 
 }

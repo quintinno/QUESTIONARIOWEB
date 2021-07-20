@@ -1,6 +1,6 @@
 import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AutenticadorModel } from '../model/autenticador-model';
 
@@ -10,6 +10,8 @@ import { AutenticadorModel } from '../model/autenticador-model';
 export class AutenticadorService {
 
   private API = environment.urlquestionarioweb;
+
+  public autenticadorStatusSubject = new Subject<boolean>();
 
   constructor(
     private httpClient: HttpClient,
@@ -30,8 +32,10 @@ export class AutenticadorService {
     return this.httpClient.post<AutenticadorModel>(`${this.API}/autenticador`, autenticadorModel);
   }
 
-  public registrarTokenLocalStorage(token : string) : void {
+  public registrarTokenLocalStorage(token : string) : boolean {
     localStorage.setItem("QUESTIONARIO_TOKEN", token);
+    this.autenticadorStatusSubject.next(true);
+    return true;
   }
 
   public isLoginAtivo() : Boolean {

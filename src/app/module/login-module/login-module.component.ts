@@ -36,11 +36,12 @@ export class LoginModuleComponent implements OnInit {
         this.autenticadorService.registrarTokenLocalStorage(response.token);
         this.usuarioService.recuperarUsuario(this.usuarioModel).subscribe((response: any) => {
           this.autenticadorService.registrarUsuarioLocalStorage(response);
-          debugger;
           if (this.autenticadorService.recuperarPerfilUsuario() == "ADMINISTRADOR") {
+            this.autenticadorService.autenticadorStatusSubject.next(true);
             return this.redirecionarPaginaHomeAdministrador();
           }
           if ((this.autenticadorService.recuperarPerfilUsuario() == "PUBLICO_ALVO")) {
+            this.autenticadorService.autenticadorStatusSubject.next(true);
             return this.redirecionarPaginaHomePublicoAlvo();
           } else {
             this.autenticadorService.logout();

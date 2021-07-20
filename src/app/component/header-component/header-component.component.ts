@@ -12,11 +12,16 @@ export class HeaderComponentComponent implements OnInit {
     public autenticadorService: AutenticadorService
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.autenticadorService.autenticadorStatusSubject.asObservable().subscribe( response => {
+      this.autenticadorService.recuperarUsuarioCorrente();
+    });
+  }
 
   public logout() {
     this.autenticadorService.logout();
     window.location.reload();
+    this.autenticadorService.autenticadorStatusSubject.next(false);
   }
 
 }

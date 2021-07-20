@@ -16,7 +16,8 @@ export class UsuarioService {
   ) { }
 
   public save(usuarioModel: UsuarioModel) : Observable<UsuarioModel> {
-    return this.httpClient.post<UsuarioModel>(`${this.API}`, usuarioModel);
+    console.log("SAVE: ", usuarioModel);
+    return this.httpClient.post<UsuarioModel>(`${this.API}/registrar-usuario`, usuarioModel);
   }
 
   public recuperarUsuario(usuarioModel: UsuarioModel) : Observable<UsuarioModel> {
