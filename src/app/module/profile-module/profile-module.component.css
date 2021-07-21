@@ -1,0 +1,13 @@
+.profile-image {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+}
+
+.centralizador {
+		position:absolute;
+		left:50%;
+		top:50%;
+		margin-left:-110px;
+		margin-top:-40px;
+}
