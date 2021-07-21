@@ -83,7 +83,7 @@ export class LoginModuleComponent implements OnInit {
   }
 
   public redirecionarPaginaHomeAdministrador() {
-    this.router.navigate(["/home-administrador"]);
+    this.router.navigate(["/administrador"]);
   }
 
   public redirecionarPaginaHomePublicoAlvo() {
