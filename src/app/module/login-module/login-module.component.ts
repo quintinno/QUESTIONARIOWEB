@@ -28,6 +28,9 @@ export class LoginModuleComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  /*
+    TODO -- RECUPERAR USUARIO A PARTIR DO LOGIN E CADASTRAR NO STORAGE (USUARIO E TOKEN)
+  */
   public realizarLoginUsuario(): void {
     if (this.isCamposValidos()) {
       this.usuarioModel.identificador = this.autenticadorModel.username;

@@ -38,7 +38,7 @@ export class AutenticadorService {
     return true;
   }
 
-  public isLoginAtivo() : Boolean {
+  public isLoginAtivo() {
     let TOKEN = localStorage.getItem("QUESTIONARIO_TOKEN");
     if(TOKEN == null || TOKEN == undefined || TOKEN == "") {
       return false;
@@ -74,6 +74,10 @@ export class AutenticadorService {
   public recuperarPerfilUsuario() {
     let usuarioModel = this.recuperarUsuarioLocalStorage();
     return usuarioModel.authorities[0].authority;
+  }
+
+  public recuperarUsuarioLogado() {
+    return this.recuperarUsuarioLocalStorage();
   }
 
 }

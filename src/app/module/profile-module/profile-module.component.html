@@ -1,27 +1,65 @@
 <mat-card>
-
-    <h1>Your Profile Details</h1>
-
-    <br/>
-
-    <mat-card-content>
-        <div class="bootstrap-wrapper">
-            <div class="container centralizador">
-
-                <div class="container">
-                    <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="Profile User" class="profile-image">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header border-bottom bg-transparent">
+                    <h1 class="header-title mb-0">Your Profile Details</h1>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-10 offset-md-1">
-                        <mat-card-content>
-                            José Quintinn
-                        </mat-card-content>
+                <div class="card-body">
+                    <div>
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="d-flex mb-2">
+                                    <div class="me-2 align-self-center">
+                                        <i class="ri-user-2-line h2 m-0 text-muted"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-15 mb-2"> Name </h4>
+                                        <h5 class="mt-0"> <b> {{usuarioModel.username | uppercase}} </b> </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="d-flex mb-2">
+                                    <div class="me-2 align-self-center">
+                                        <i class="ri-map-pin-time-line h2 m-0 text-muted"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-15 mb-2"> Questionário </h4>
+                                        <h5 class="mt-0"> <b>EXAME{{usuarioModel.codigo}}</b> </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="d-flex mb-2">
+                                    <div class="me-2 align-self-center">
+                                        <i class="ri-user-2-line h2 m-0 text-muted"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-15 mb-2"> Phone </h4>
+                                        <h5 class="mt-0"> <b>+55 061 9-9999-9999</b> </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <div class="d-flex mb-2">
+                                    <div class="me-2 align-self-center">
+                                        <i class="ri-map-pin-time-line h2 m-0 text-muted"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-15 mb-2"> Status </h4>
+                                        <h5 class="mt-0"> <b>{{usuarioModel.isAtivo ? "ACTIVE" : "INACTIVE"}}</b> </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
-    </mat-card-content>
-
+    </div>
+    <mat-card-actions class="centralizador">
+        <button mat-raised-button color="primary">Update</button>
+        <button mat-raised-button color="warn">Share</button>
+    </mat-card-actions>
 </mat-card>
